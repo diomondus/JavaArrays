@@ -5,8 +5,9 @@ import java.util.*;
  * on 08.07.17.
  */
 
-public class IntegerDynamicMatrix {
-    private List<IntegerDynamicArray> mMatrix;
+public class IntegerDynamicMatrix<T extends Number> {
+    private List<DynamicArray> mMatrix;
+    private Class<T> clazz;
 
     /**
      * Создание матрицы m строк и n столбцов (m x n) с заполнением случайными числами
@@ -16,10 +17,10 @@ public class IntegerDynamicMatrix {
      * @param aRandom : генератор случайных чисел
      * @param aBound  : диапазон сгенерированных чисел [0..aBound]
      */
-    public IntegerDynamicMatrix(Integer aRows, Integer aCols, Random aRandom, int aBound) {
+    public IntegerDynamicMatrix(Integer aRows, Integer aCols, Random aRandom, int aBound, Class<T> clazz) {
         mMatrix = new ArrayList<>();
         for (int i = 0; i < aRows; ++i) {
-            mMatrix.add(new IntegerDynamicArray(aCols, aRandom, aBound));
+            mMatrix.add(new DynamicArray(aCols, aRandom, aBound, clazz));
         }
     }
 
@@ -32,42 +33,42 @@ public class IntegerDynamicMatrix {
     }
 
     public void print() {
-        for (IntegerDynamicArray array : mMatrix) {
+        for (DynamicArray array : mMatrix) {
             array.print();
         }
     }
 
     public void sort() {
-        for (IntegerDynamicArray array : mMatrix) {
+        for (DynamicArray array : mMatrix) {
             array.sort();
         }
     }
 
-    public Integer getMaximum() {
-        Integer max = mMatrix.iterator().next().iterator().next();
-        for (IntegerDynamicArray array : mMatrix) {
-            Iterator<Integer> it = array.iterator();
+    public T getMaximum() {
+        Comparable max = (Comparable) mMatrix.iterator().next().iterator().next();
+        for (DynamicArray array : mMatrix) {
+            Iterator<T> it = array.iterator();
             while (it.hasNext()) {
-                Integer elem = it.next();
-                if (elem > max) {
+                Comparable elem = (Comparable) it.next();
+                if (elem.compareTo(max) > 0) {
                     max = elem;
                 }
             }
         }
-        return max;
+        return (T) max;
     }
 
     public Integer getMinimum() {
-        Integer min = mMatrix.iterator().next().iterator().next();
-        for (IntegerDynamicArray array : mMatrix) {
-            Iterator<Integer> it = array.iterator();
+        Comparable min = (Comparable) mMatrix.iterator().next().iterator().next();
+        for (DynamicArray array : mMatrix) {
+            Iterator<T> it = array.iterator();
             while (it.hasNext()) {
-                Integer elem = it.next();
-                if (elem < min) {
+                Comparable elem = (Comparable) it.next();
+                if (elem.compareTo(min) < 0) {
                     min = elem;
                 }
             }
         }
-        return min;
+        return (Integer) min;
     }
 }
