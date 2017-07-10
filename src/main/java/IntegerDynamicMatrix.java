@@ -58,7 +58,7 @@ public class IntegerDynamicMatrix<T extends Number> {
         return (T) max;
     }
 
-    public Integer getMinimum() {
+    public T getMinimum() {
         Comparable min = (Comparable) mMatrix.iterator().next().iterator().next();
         for (DynamicArray array : mMatrix) {
             Iterator<T> it = array.iterator();
@@ -69,6 +69,6 @@ public class IntegerDynamicMatrix<T extends Number> {
                 }
             }
         }
-        return (Integer) min;
+        return (T) min;
     }
 }

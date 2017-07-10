@@ -12,7 +12,7 @@ public class Main {
 
         Long seed = System.currentTimeMillis();
         Random random = new Random(seed);
-        IntegerDynamicMatrix<Integer> matrix = new IntegerDynamicMatrix(aHight, aWeight, random, aBound, Integer.class);
+        IntegerDynamicMatrix<Double> matrix = new IntegerDynamicMatrix(aHight, aWeight, random, aBound, Double.class);
         System.out.println("Matrix");
         matrix.print();
         matrix.sort();
