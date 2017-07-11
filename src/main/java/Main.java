@@ -3,7 +3,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        Integer m = 5, n = 10, bound = 100;
+        Integer m = 4, n = 10, bound = 100;
 //        processIntegerDynamicArray(n, bound);
         processIntegerDynamicMatrix(m, n, bound);
     }

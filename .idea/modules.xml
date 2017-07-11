@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays_main.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays_main.iml" group="arrays" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays_main.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays_main.iml" group="arrays" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays_test.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays_test.iml" group="arrays" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays_test.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays_test.iml" group="arrays" />
     </modules>
   </component>
