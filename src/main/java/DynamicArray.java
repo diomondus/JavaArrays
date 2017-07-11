@@ -44,14 +44,14 @@ public class DynamicArray<T extends Number> extends ArrayList<T> {
         }
     }
 
-    public DynamicArray(int aCount, Class<T> aClazz)
-    {
+    public DynamicArray(int aCount, Class<T> aClazz) {
         if (aCount > 0) {
             for (int i = 0; i < aCount; ++i) {
                 add(aClazz.cast(0));
             }
         }
     }
+
     public void print() {
         for (T elem : this) {
             System.out.print(elem + " ");

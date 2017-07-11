@@ -5,7 +5,7 @@ import java.util.*;
  * on 08.07.17.
  */
 
-public class DynamicMatrix<T extends Number> extends ArrayList<DynamicArray<T>>{
+public class DynamicMatrix<T extends Number> extends ArrayList<DynamicArray<T>> {
 
     /**
      * Создание матрицы m строк и n столбцов (m x n) с заполнением случайными числами
@@ -26,6 +26,7 @@ public class DynamicMatrix<T extends Number> extends ArrayList<DynamicArray<T>>{
 
     /**
      * Создание нулевой матрицы m строк и n столбцов
+     *
      * @param aRows : m
      * @param aCols : n
      * @param clazz : преобразователь
@@ -71,7 +72,7 @@ public class DynamicMatrix<T extends Number> extends ArrayList<DynamicArray<T>>{
     }
 
     public T getMinimum() {
-        T min =  iterator().next().iterator().next();
+        T min = iterator().next().iterator().next();
         for (DynamicArray<T> array : this) {
             for (T elem : array) {
                 if (array.mComparator.compare(elem, min) < 0) {
