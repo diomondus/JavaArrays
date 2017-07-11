@@ -10,11 +10,11 @@ public class DynamicMatrix<T extends Number> extends ArrayList<DynamicArray<T>>{
     /**
      * Создание матрицы m строк и n столбцов (m x n) с заполнением случайными числами
      *
-     * @param aRows   = m
-     * @param aCols   = n
+     * @param aRows   : m
+     * @param aCols   : n
      * @param aRandom : генератор случайных чисел
      * @param aBound  : диапазон сгенерированных чисел [0..aBound]
-     * @param clazz = преобразователь
+     * @param clazz   : преобразователь
      */
     public DynamicMatrix(Integer aRows, Integer aCols, Random aRandom, int aBound, Class<T> clazz) {
         if (aRows > 0 && aCols > 0) {
@@ -26,9 +26,9 @@ public class DynamicMatrix<T extends Number> extends ArrayList<DynamicArray<T>>{
 
     /**
      * Создание нулевой матрицы m строк и n столбцов
-     * @param aRows = m
-     * @param aCols = n
-     * @param clazz = преобразователь
+     * @param aRows : m
+     * @param aCols : n
+     * @param clazz : преобразователь
      */
     public DynamicMatrix(Integer aRows, Integer aCols, Class<T> clazz) {
         if (aRows > 0 && aCols > 0) {

@@ -53,7 +53,7 @@ public class DynamicArray<T extends Number> extends ArrayList<T> {
         }
     }
     public void print() {
-        for (Number elem : this) {
+        for (T elem : this) {
             System.out.print(elem + " ");
         }
         System.out.println();
