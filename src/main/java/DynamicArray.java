@@ -5,9 +5,9 @@ import java.util.*;
  * on 08.07.17.
  */
 
-public class DynamicArray<T extends Number> {
+public class DynamicArray<T extends Number> extends ArrayList<T> {
 
-    private List<Number> mArray;
+    protected Comparator<T> mComparator;
 
     /**
      * Создание массива n элементов
@@ -17,59 +17,64 @@ public class DynamicArray<T extends Number> {
      * @param aBound  : диапазон сгенерированных чисел [0..aBound]
      */
     public DynamicArray(int aCount, Random aRandom, Integer aBound, Class<T> aClazz) {
-        mArray = new ArrayList<>();
-        if (aClazz.isAssignableFrom(Integer.class)) {
-            for (int i = 0; i < aCount; ++i) {
-                mArray.add(aRandom.nextInt(aBound));
+        if (aCount > 0) {
+            if (aClazz.isAssignableFrom(Integer.class)) {
+                mComparator = Comparator.comparingInt(o -> (Integer) o);
+                for (int i = 0; i < aCount; ++i) {
+                    add(aClazz.cast(aRandom.nextInt(aBound)));
+                }
+            } else if (aClazz.isAssignableFrom(Double.class)) {
+                mComparator = Comparator.comparingDouble(o -> (Double) o);
+                for (int i = 0; i < aCount; ++i) {
+                    add(aClazz.cast(aRandom.nextDouble()));
+                }
+            } else if (aClazz.isAssignableFrom(Float.class)) {
+                mComparator = (o1, o2) -> Float.compare((Float) o1, (Float) o2);
+                for (int i = 0; i < aCount; ++i) {
+                    add(aClazz.cast(aRandom.nextFloat()));
+                }
+            } else if (aClazz.isAssignableFrom(Long.class)) {
+                mComparator = Comparator.comparingLong(o -> (Long) o);
+                for (int i = 0; i < aCount; ++i) {
+                    add(aClazz.cast(aRandom.nextLong()));
+                }
+            } else {
+                throw new IllegalArgumentException("Unsupported class: " + aClazz.getName());
             }
-        } else if (aClazz.isAssignableFrom(Double.class)) {
-            for (int i = 0; i < aCount; ++i) {
-                mArray.add(aRandom.nextDouble());
-            }
-        } else if (aClazz.isAssignableFrom(Float.class)) {
-            for (int i = 0; i < aCount; ++i) {
-                mArray.add(aRandom.nextFloat());
-            }
-        } else if (aClazz.isAssignableFrom(Long.class)) {
-            for (int i = 0; i < aCount; ++i) {
-                mArray.add(aRandom.nextLong());
-            }
-        } else {
-            throw new IllegalArgumentException("Unsupported class: " + aClazz.getName());
         }
     }
 
+    public DynamicArray(int aCount, Class<T> aClazz)
+    {
+        if (aCount > 0) {
+            for (int i = 0; i < aCount; ++i) {
+                add(aClazz.cast(0));
+            }
+        }
+    }
     public void print() {
-        for (Number elem : mArray) {
+        for (Number elem : this) {
             System.out.print(elem + " ");
         }
         System.out.println();
     }
 
-    public Iterator<T> iterator() {
-        return (Iterator<T>) mArray.iterator();
-    }
-
-    public int size() {
-        return mArray.size();
-    }
-
     /**
      * Сортировка пузырьком
      */
-    public void sort() {
+    public void bubbleSort() {
         boolean fl = true;
-        for (int j = 0; j < mArray.size() && fl; ++j) {
+        for (int j = 0; j < size() && fl; ++j) {
             fl = false;
-            ListIterator<Number> it1 = mArray.listIterator();
-            ListIterator<Number> it2 = mArray.listIterator(1);
+            ListIterator<T> it1 = listIterator();
+            ListIterator<T> it2 = listIterator(1);
             while (it2.hasNext()) {
-                Comparable buf1 = (Comparable) it1.next();
-                Comparable buf2 = (Comparable) it2.next();
-                if (buf1.compareTo(buf2) > 0) {
+                T buf1 = it1.next();
+                T buf2 = it2.next();
+                if (mComparator.compare(buf1, buf2) > 0) {
                     fl = true;
-                    it1.set((Number) buf2);
-                    it2.set((Number) buf1);
+                    it1.set(buf2);
+                    it2.set(buf1);
                 }
             }
         }

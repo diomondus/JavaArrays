@@ -12,10 +12,11 @@ public class Main {
 
         Long seed = System.currentTimeMillis();
         Random random = new Random(seed);
-        IntegerDynamicMatrix<Double> matrix = new IntegerDynamicMatrix(aHight, aWeight, random, aBound, Double.class);
+        DynamicMatrix<Integer> matrix = new DynamicMatrix<>(aHight, aWeight, random, aBound, Integer.class);
+//        DynamicMatrix<Double> matrix = new DynamicMatrix<>(aHight, aWeight, random, aBound, Double.class);
         System.out.println("Matrix");
         matrix.print();
-        matrix.sort();
+        matrix.bubbleRowSort();
         System.out.println("Sorted matrix");
         matrix.print();
         System.out.println("Max = " + matrix.getMaximum());
@@ -28,7 +29,7 @@ public class Main {
         DynamicArray<Integer> array = new DynamicArray<>(aCount, random, aBound, Integer.class);
         System.out.println("Array");
         array.print();
-        array.sort();
+        array.bubbleSort();
         System.out.println("Sorted array");
         array.print();
     }
