@@ -79,7 +79,6 @@ public class DynamicArray<T extends Number> extends ArrayList<T> {
             }
         }
     }
-
 //    public void sort()
 //    {
 //        boolean fl = true;
