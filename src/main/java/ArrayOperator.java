@@ -9,13 +9,16 @@ import java.util.Iterator;
  */
 public class ArrayOperator {
 
+    private static Iterator<? extends Number> it1;
+    private static Iterator<? extends Number> it2;
+
     static ArrayList<? extends Number> add(ArrayList<? extends Number> o1, ArrayList<? extends Number> o2) {
         if (o1 == null || o2 == null || o1.size() != o2.size()) {
             return null;
         } else {
             ArrayList result = new ArrayList();
-            Iterator<? extends Number> it1 = o1.iterator();
-            Iterator<? extends Number> it2 = o2.iterator();
+            it1 = o1.iterator();
+            it2 = o2.iterator();
             while (it1.hasNext()) {
                 result.add((it1.next().doubleValue() + it2.next().doubleValue()));
             }
@@ -28,10 +31,10 @@ public class ArrayOperator {
             return null;
         } else {
             ArrayList result = new ArrayList();
-            Iterator<? extends Number> it1 = o1.iterator();
-            Iterator<? extends Number> it2 = o2.iterator();
+            it1 = o1.iterator();
+            it2 = o2.iterator();
             while (it1.hasNext()) {
-                result.add((it1.next().doubleValue() + it2.next().doubleValue()));
+                result.add((it1.next().doubleValue() - it2.next().doubleValue()));
             }
             return result;
         }
@@ -42,9 +45,8 @@ public class ArrayOperator {
             return null;
         } else {
             Double sum = 0.0d;
-            ;
-            Iterator<? extends Number> it1 = o1.iterator();
-            Iterator<? extends Number> it2 = o2.iterator();
+            it1 = o1.iterator();
+            it2 = o2.iterator();
             while (it1.hasNext()) {
                 sum += it1.next().doubleValue() * it2.next().doubleValue();
             }
