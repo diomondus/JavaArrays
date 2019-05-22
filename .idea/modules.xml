@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays_main.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays_main.iml" group="arrays" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/arrays_test.iml" filepath="$PROJECT_DIR$/.idea/modules/arrays_test.iml" group="arrays" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.butilov.arrays.arrays.iml" filepath="$PROJECT_DIR$/.idea/modules/com.butilov.arrays.arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.butilov.arrays.arrays.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.butilov.arrays.arrays.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.butilov.arrays.arrays.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.butilov.arrays.arrays.test.iml" />
     </modules>
   </component>
 </project>

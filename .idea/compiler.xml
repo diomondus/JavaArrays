@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="arrays_main" target="1.8" />
-      <module name="arrays_test" target="1.8" />
+      <module name="com.butilov.arrays.arrays.main" target="1.8" />
+      <module name="com.butilov.arrays.arrays.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
