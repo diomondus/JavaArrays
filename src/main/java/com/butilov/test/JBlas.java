@@ -1,6 +1,8 @@
+package com.butilov.test;
+
 import org.jblas.DoubleMatrix;
 
-public class JBlasTest {
+public class JBlas {
 
     public static void main(String[] args) {
         processJBLASMatrix();
